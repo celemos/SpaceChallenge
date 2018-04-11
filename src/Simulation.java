@@ -39,7 +39,12 @@ public class Simulation {
     required to send each rocket safely to Mars. runSimulation then returns the total budget required
     to send all rockets (including the crashed ones).
 
+    UNSOLVED ISSUE/BUG 1: The main method must be placed inside the Simulation class (otherwise, it does not run at all)
+    */
+
     public static void main(String [] args) throws FileNotFoundException {
+
+        // NOTE: RUN THIS METHOD 5 OR 6 TIMES IN A ROW IN ORDER TO SEE THE EFFECT OF LAUNCH EXPLOSIONS AND LAND CRASHES
 
         // create a simulation object
         Simulation simulation = new Simulation();
@@ -160,7 +165,7 @@ public class Simulation {
         System.out.println( "Total budget using the U2 rocket's fleet: US$ " + totalU2 + " million");
 
     }
-    */
+
 
     public static double runSimulation(ArrayList<Rocket> rocketList) {
         /*

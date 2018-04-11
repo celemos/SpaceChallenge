@@ -17,9 +17,32 @@ public class Main {
     - Load a fleet of U1 rockets for Phase-1 and then for Phase-2
     - Run the simulation using the fleet of U1 rockets and display the total budget required.
     - Repeat the same for U2 rockets and display the total budget for that.
-    */
+
+    UNSOLVED ISSUE/BUG 1:
+    The main method must be placed inside the Simulation class (otherwise, it does not run at all).
+    If I try to place it inside the Main class, I get the error:
+
+    Exception in thread “main” java.lang.NoSuchMethodException: Simulation.main([Ljava.lang.String;)
+    at java.lang.Class.getMethod(Class.java:1786)
+    at com.intellij.rt.execution.application.AppMain.main(AppMain.java:125)
+
+    That's the reason why the following main method is commented out.
+    A copy of it is placed in the Simulation class where it runs smoothly without problems.
+    Please, refer to the main method in the Simulation class.
+
+    UNSOLVED ISSUE/BUG 2    :
+    I also did not get running the carry and canCarry methods in the Rocket class.
+    To get them running, they must be implemented in the U1 and U2 classes (otherwise, they do not run correctly).
+    I thought the solution for the second issue was related with the correct use of “static” keyword.
+    But, after some trials with “static”, the issue continues to force me to place the carry and canCarry methods
+    in the U1 and U2 classes to get them running.
+
+    Suggestions are welcome! (I thing they will help all of us who are interested to learn a bit more).
+    COMMENTED OUT CODE FOLLOWS:
 
     public static void main(String [] args) throws FileNotFoundException {
+
+        // NOTE: RUN THIS METHOD 5 OR 6 TIMES IN A ROW IN ORDER TO SEE THE EFFECT OF LAUNCH EXPLOSIONS AND LAND CRASHES
 
         // create a simulation object
         Simulation simulation = new Simulation();
@@ -140,5 +163,5 @@ public class Main {
         System.out.println( "Total budget using the U2 rocket's fleet: US$ " + totalU2 + " million");
 
     }
-
+    */
 }

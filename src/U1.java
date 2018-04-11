@@ -14,7 +14,7 @@ public class U1 extends Rocket{
     class they will override these methods to return true or false based on the actual probability of each type.
 
     - carry and canCarry should be implemented in Rocket class and will not need to be overridden in the U1 and U2
-    classes (???)
+    classes (DOES NOT WORK... WHY???)
 
     boolean launch (); // returns either true or false indicating if the launch was successful or if the rocket has crashed
     boolean land ();   // returns either true or false based on the success of the landing
@@ -68,6 +68,13 @@ public class U1 extends Rocket{
         return success;
     }
 
+    /*UNSOLVED ISSUE/BUG 2:
+    I also did not get running the carry and canCarry methods in the Rocket class.
+    To get them running, they must be implemented in the U1 and U2 classes (otherwise, they do not run correctly).
+    I thought the solution for the second issue was related with the correct use of “static” keyword.
+            But, after some trials with “static”, the issue continues to force me to place the carry and canCarry methods
+    in the U1 and U2 classes to get them running.
+    */
 
     @Override
     public boolean canCarry(Item item) {
@@ -81,7 +88,6 @@ public class U1 extends Rocket{
         currentWeight = currentWeight + item.weight;
         //this.cargoCarried = this.cargoCarried + item.weight;
     }
-
 
     /*
     public Item getItemCargoList(int id) {
