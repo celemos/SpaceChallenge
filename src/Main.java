@@ -39,7 +39,7 @@ public class Main {
 
     Suggestions are welcome! (I thing they will help all of us who are interested to learn a bit more).
     COMMENTED OUT CODE FOLLOWS:
-
+    */
     public static void main(String [] args) throws FileNotFoundException {
 
         // NOTE: RUN THIS METHOD 5 OR 6 TIMES IN A ROW IN ORDER TO SEE THE EFFECT OF LAUNCH EXPLOSIONS AND LAND CRASHES
@@ -83,12 +83,12 @@ public class Main {
         // ===========================
 
         //create fleet of U1 rockets that carries all the items of phase 1;
-        ArrayList<Rocket> rocketListU1P1 = new ArrayList();
+        ArrayList<Rocket> rocketListU1P1;
         rocketListU1P1 = simulation.loadU1 (itemListP1);
         ArrayList<Item> cargoListU1P1 = new ArrayList();
 
         //create fleet of U1 rockets that carries all the items of phase 2;
-        ArrayList<Rocket> rocketListU1P2 = new ArrayList();
+        ArrayList<Rocket> rocketListU1P2;
         rocketListU1P2 = simulation.loadU1 (itemListP2);
         ArrayList<Item> cargoListU1P2 = new ArrayList();
 
@@ -96,7 +96,7 @@ public class Main {
         System.out.println( "=======================================" );
         System.out.println( "Let's show the U1 rocket's cargo list: " );
 
-        ArrayList<Item> cargoList = new ArrayList();
+        ArrayList<Item> cargoList;
         i=1;
         j=1;
         for ( Rocket rocket : rocketListU1P1 ) {
@@ -114,12 +114,12 @@ public class Main {
         }
 
         //create fleet of U2 rockets that carry all the items of phase 1;
-        ArrayList<Rocket> rocketListU2P1 = new ArrayList<>();
+        ArrayList<Rocket> rocketListU2P1;
         rocketListU2P1 = simulation.loadU2 (itemListP1);
         ArrayList<Item> cargoListU2P1 = new ArrayList();
 
         //create fleet of U2 rockets that carry all the items of phase 2;
-        ArrayList<Rocket> rocketListU2P2 = new ArrayList<>();
+        ArrayList<Rocket> rocketListU2P2;
         rocketListU2P2 = simulation.loadU2 (itemListP2);
         ArrayList<Item> cargoListU2P2 = new ArrayList();
 
@@ -163,5 +163,5 @@ public class Main {
         System.out.println( "Total budget using the U2 rocket's fleet: US$ " + totalU2 + " million");
 
     }
-    */
+
 }

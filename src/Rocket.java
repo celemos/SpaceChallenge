@@ -41,20 +41,16 @@ public class Rocket implements SpaceShip {
         return true;
     }
 
-    /*
-    @Override
     public boolean canCarry(Item item) {
         return (currentWeight + item.weight <= maxWeight);
         //return (this.cargoCarried + item.weight <= this.cargoLimit);
     }
 
-    @Override
     public void carry(Item item) {
         cargoList.add(item);
         currentWeight = currentWeight + item.weight;
         //this.cargoCarried = cargoCarried + item.weight;
     }
-    */
 
     /*UNSOLVED ISSUE/BUG 2:
     I also did not get running the carry and canCarry methods in the Rocket class.
@@ -62,7 +58,6 @@ public class Rocket implements SpaceShip {
     I thought the solution for the second issue was related with the correct use of “static” keyword.
     But, after some trials with “static”, the issue continues to force me to place the carry and canCarry methods
     in the U1 and U2 classes to get them running.
-    */
 
     @Override
     public boolean canCarry(Item item) {
@@ -72,6 +67,7 @@ public class Rocket implements SpaceShip {
     @Override
     public void carry(Item item) {
     }
+    */
 
     public ArrayList<Item> getCargoList() {
         return this.cargoList;
@@ -91,6 +87,5 @@ public class Rocket implements SpaceShip {
         currentWeight = rocketWeight;
         //this.cargoCarried = 0;
     }
-
 
 }

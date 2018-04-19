@@ -78,7 +78,6 @@ public class U2 extends Rocket{
     I thought the solution for the second issue was related with the correct use of “static” keyword.
             But, after some trials with “static”, the issue continues to force me to place the carry and canCarry methods
     in the U1 and U2 classes to get them running.
-    */
 
     @Override
     public boolean canCarry(Item item) {
@@ -92,7 +91,7 @@ public class U2 extends Rocket{
         currentWeight = currentWeight + item.weight;
         //this.cargoCarried = cargoCarried + item.weight;
     }
-
+    */
 
     /*
     public Item getItemCargoList(int id) {
