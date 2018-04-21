@@ -121,7 +121,7 @@ public class Simulation {
                 // as no more space for the last item, add the rocket to the rocket list
                 rocketListU1.add(rocket);
                 currentWeight = rocket.getCurrentWeight();
-                System.out.println( "U1 Rocket " + j + " added to the U1 rocket list: " + currentWeight + " kg" );
+                System.out.println( "U1 Rocket " + j + " added to the U1 rocket list, total weight: " + currentWeight + " kg" );
                 // create a new rocket
                 j++;
                 rocket = new U1(j, cargoList, currentWeight);
@@ -137,7 +137,7 @@ public class Simulation {
         // add the last rocket to the rocket list (as the last add method was not performed)
         rocketListU1.add(rocket);
         currentWeight = rocket.getCurrentWeight();
-        System.out.println( "U1 Rocket " + j + " added to the U1 rocket list: " + currentWeight + " kg" );
+        System.out.println( "U1 Rocket " + j + " added to the U1 rocket list, total weight: " + currentWeight + " kg" );
 
         // if no more items to carry, return with the list of rockets
         System.out.println( "============ end of loadU1 ============" );
@@ -152,16 +152,16 @@ public class Simulation {
         */
         int i; // number of items
         int j; // number of rockets
-        //int cargoCarried = 0; // initialize cargoCarried in kg
         ArrayList<U2> rocketListU2 = new ArrayList<U2>();
         ArrayList<Item> cargoList = new ArrayList<Item>();
         U2 rocket;
-        //int currentWeight = 0;
+        int currentWeight = 0;
+        //int cargoCarried = 0; // initialize cargoCarried in kg
 
         System.out.println( "============ begin loadU2 ==========" );
         i = 1;
         j = 1;
-        rocket = new U2(j, cargoList);
+        rocket = new U2(j, cargoList, currentWeight);
         rocket.initializeRocket(j);
         System.out.println( "Loading the U2 rocket " + j + ": " + rocket);
 
@@ -176,10 +176,11 @@ public class Simulation {
             else {
                 // as no more space for the last item, add the rocket to the rocket list
                 rocketListU2.add(rocket);
-                System.out.println( "U2 Rocket " + j + " added to the U2 rocket list: " + rocket );
+                currentWeight = rocket.getCurrentWeight();
+                System.out.println( "U2 Rocket " + j + " added to the U2 rocket list, total weight: " + currentWeight + " kg");
                 // create a new rocket
                 j++;
-                rocket = new U2(j, cargoList);
+                rocket = new U2(j, cargoList, currentWeight);
                 rocket.initializeRocket(j);
                 System.out.println( "Loading the U2 rocket " + j + ": " + rocket);
                 // load the new rocket with the last item that was left behind
@@ -191,7 +192,8 @@ public class Simulation {
         }
         // add the last rocket to the rocket list (as the last add method was not performed)
         rocketListU2.add(rocket);
-        System.out.println( "U2 Rocket " + j + " added to the U2 rocket list: " + rocket );
+        currentWeight = rocket.getCurrentWeight();
+        System.out.println( "U2 Rocket " + j + " added to the U2 rocket list, total weight: " + currentWeight + " kg" );
 
         // if no more items to carry, return with the list of rockets
         System.out.println( "============ end of loadU2 ============" );

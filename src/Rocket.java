@@ -5,7 +5,6 @@ import java.util.ArrayList;
  */
 public class Rocket implements SpaceShip {
 
-
     /* PART 1: The design (continue from SpaceShip interface)
     3. Create a class Rocket that implements the SpaceShip Interface and hence implements all the methods above.
 
@@ -21,15 +20,17 @@ public class Rocket implements SpaceShip {
     void carry (Item item);   // updates the current weight of the rocket
     */
 
-    private ArrayList<Item> cargoList = new ArrayList<Item>();
-
-    private static int currentWeight;
-
-    private int maxWeight;
-    private double rocketCost;
-    private int rocketId;
-    private int rocketWeight;
-    //private int cargoCarried;
+    ArrayList<Item> cargoList = new ArrayList<Item>();
+    int rocketId;
+    int currentWeight;
+    double rocketCost; // million
+    int rocketWeight; // kg
+    int maxWeight; // kg
+    double chanceOfLaunchExplosion; // * this.cargoCarried / this.cargoLimit;
+    double chanceOfLandingCrash; // * this.cargoCarried / this.cargoLimit;
+    //where:
+    //int cargoCarried = this.currentWeight - this.rocketWeight;
+    //int cargoLimit = this.maxWeight - this.rocketWeight;
 
     @Override
     public boolean launch() {
@@ -48,26 +49,9 @@ public class Rocket implements SpaceShip {
 
     public void carry(Item item) {
         cargoList.add(item);
-        currentWeight = currentWeight + item.weight;
+        this.currentWeight = this.currentWeight + item.weight;
         //this.cargoCarried = cargoCarried + item.weight;
     }
-
-    /*UNSOLVED ISSUE/BUG 2:
-    I also did not get running the carry and canCarry methods in the Rocket class.
-    To get them running, they must be implemented in the U1 and U2 classes (otherwise, they do not run correctly).
-    I thought the solution for the second issue was related with the correct use of “static” keyword.
-    But, after some trials with “static”, the issue continues to force me to place the carry and canCarry methods
-    in the U1 and U2 classes to get them running.
-
-    @Override
-    public boolean canCarry(Item item) {
-        return true;
-    }
-
-    @Override
-    public void carry(Item item) {
-    }
-    */
 
     public ArrayList<Item> getCargoList() {
         return this.cargoList;
@@ -84,7 +68,7 @@ public class Rocket implements SpaceShip {
     public void initializeRocket(int rocketId) {
         this.rocketId = rocketId;
         this.cargoList = new ArrayList<Item>();
-        currentWeight = rocketWeight;
+        this.currentWeight = rocketWeight;
         //this.cargoCarried = 0;
     }
 

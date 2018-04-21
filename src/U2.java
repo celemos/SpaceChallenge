@@ -27,27 +27,20 @@ public class U2 extends Rocket{
     Chance of landing crash = 8% * (cargo carried / cargo limit)
     */
 
-    private int rocketId;
-    private ArrayList<Item> cargoList = new ArrayList<Item>();
-    private static int currentWeight;
-
-    private double rocketCost = 120; // million
-    private int rocketWeight = 18000; // kg
-    private int maxWeight = 29000; // kg
-    //private int cargoCarried = currentWeight - rocketWeight;
-    //private int cargoLimit = maxWeight - rocketWeight;
-    private double chanceOfLaunchExplosion = 0.04; // * cargoCarried / cargoLimit;
-    private double chanceOfLandingCrash = 0.08; // * cargoCarried / cargoLimit;
-
-    // Constructors are only necessary for variables that were not calculated privately
-    public U2(int rocketId, ArrayList<Item> cargoList){
+    // Constructors
+    public U2(int rocketId, ArrayList<Item> cargoList, int currentWeight){
         this.rocketId = rocketId;
         this.cargoList = cargoList;
-        //this.currentWeight = currentWeight;
-    }
+        this.currentWeight = currentWeight;
 
-    public U2() {
-
+        rocketCost = 120; // million
+        rocketWeight = 18000; // kg
+        maxWeight = 29000; // kg
+        chanceOfLaunchExplosion  = 0.04; // * this.cargoCarried / this.cargoLimit;
+        chanceOfLandingCrash = 0.08; // * this.cargoCarried / this.cargoLimit;
+        //where:
+        //int cargoCarried = this.currentWeight - this.rocketWeight;
+        //int cargoLimit = this.maxWeight - this.rocketWeight;
     }
 
     @Override
@@ -70,52 +63,6 @@ public class U2 extends Rocket{
         boolean success = Math.random() >= probabilityTrue;
         if (!success) System.out.println("U2 Rocket crashed at landing: send it again");
         return success;
-    }
-
-    /*UNSOLVED ISSUE/BUG 2:
-    I also did not get running the carry and canCarry methods in the Rocket class.
-    To get them running, they must be implemented in the U1 and U2 classes (otherwise, they do not run correctly).
-    I thought the solution for the second issue was related with the correct use of “static” keyword.
-            But, after some trials with “static”, the issue continues to force me to place the carry and canCarry methods
-    in the U1 and U2 classes to get them running.
-
-    @Override
-    public boolean canCarry(Item item) {
-        return (currentWeight + item.weight <= maxWeight);
-        //return (this.cargoCarried + item.weight <= this.cargoLimit);
-    }
-
-    @Override
-    public void carry(Item item) {
-        this.cargoList.add(item);
-        currentWeight = currentWeight + item.weight;
-        //this.cargoCarried = cargoCarried + item.weight;
-    }
-    */
-
-    /*
-    public Item getItemCargoList(int id) {
-        return this.cargoList.get(id);
-    }
-    */
-
-    public ArrayList<Item> getCargoList() {
-        return this.cargoList;
-    }
-
-    public int getCurrentWeight() {
-        return this.currentWeight;
-    }
-
-    public double getRocketCost() {
-        return this.rocketCost;
-    }
-
-    public void initializeRocket(int rocketId) {
-        this.rocketId = rocketId;
-        this.cargoList = new ArrayList<Item>();
-        this.currentWeight = rocketWeight;
-        //this.cargoCarried = 0;
     }
 
 }
